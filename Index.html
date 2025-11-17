@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #A8BBA3;
+        color: #333;
+      margin: 0;
+      padding: 50px;
+        }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #B87C4C;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+        .logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px; 
+            height: auto;
+            max-width: 100%;
+            filter: brightness(0.2) contrast(1.2);
+        }
+        .btn {
+            display: inline-block;
+            background-color: #C4A484;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #F7F1DE;
+        }
+</style>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cykelklubben</title>
+    <meta name="description" content="Basic starter page for Cykkelklubben" />
+</head>
+<body>
+    <img src="./logo.png" alt="Cykelklubben Logo" class="logo" />
+    <div class="container">
+        <header>
+            <h1>Cykelklubben</h1>
+        </header>
+
+        <main>
+            <h2>Velkommen til Cykelklubben Kæden</h2>
+            <p>Cykelklubben Kæden er en dynamisk cykelklub dedikeret til at promovere cykling som både fritidsaktivitet og livsstil. Vi samler cykelentusiaster af alle niveauer til en fælles mission: at nyde glæden ved at cykle, samtidig med at vi bidrager positivt til vores samfund og miljø.</p>
+
+            <h2>Om Os</h2>
+            <p>Siden vores stiftelse har Cykelklubben Kæden været på vanguarden inden for lokale cykelaktiviteter. Vi organiserer regelmæssige ture, workshops og sociale arrangementer for alle aldersgrupper og niveauer. Uanset om du er en erfaren cykelrytter eller lige ved at starte, er der plads til dig hos os.</p>
+
+            <h2>Værdier</h2>
+            <ul>
+                <li><h3>Fællesskab</h3>
+                    <p>Vi mener, at cykling er bedre sammen. Gennem fælles ture og begivenheder bygger vi stærke forbindelser mellem medlemmer og skaber en inkluderende miljø for alle.</p>
+                </li>
+                <li><h3>Sundhed</h3>
+                    <p>Cykling er en vidunderlig måde at vedligeholde eller forbedre din fysiske og mental sundhed. Vi tilskynder vores medlemmer til at vedtage en aktiv livsstil og dele deres sundhedsmål.</p>
+                </li>
+                <li><h3>Miljøbevidsthed</h3>
+                    <p>Ved at cykle reducerer vi vores kulstofaftryk og bidrager til en grønnere planet. Vi er dedikerede til at promovere bæredygtige transportmuligheder og miljøvenlig praksis.</p>
+                </li>
+                <li><h3>Eventyrlyst</h3>
+                    <p>Vi elsker at udforske nye ruter, støde på nye mennesker og opdage nye steder på vores cykler. Hver tur er en mulighed for eventyr og nye oplevelser.</p>
+                </li>
+            </ul>
+
+            <h2>Vores Aktiviteter</h2>
+            <p>Cykelklubben Kæden arrangerer en række aktiviteter gennem hele året:</p>
+            <ul>
+                <li>Ugentlige cykelture i varierende længde og sværhedsgrad</li>
+                <li>Månedlige sociale arrangementer og møder</li>
+                <li>Trænings- og vedligeholdelses-workshops</li>
+                <li>Årlige klub-udflugter og cykelcamp</li>
+                <li>Deltagelse i lokale cykelevents og marathon</li>
+                <li>Mentorprogrammer for nye medlemmer</li>
+            </ul>
+
+            <h2>Bliv Medlem</h2>
+            <p>Interesseret i at blive medlem af Cykelklubben Kæden? Vi hilser nye medlemmer varmt velkomne! For mere information om medlemskab, kontakt os eller besøg en af vores kommende møder. Membersskabskontingent er rimeligt, og der er ingen minimumskrav til dine cykelferdeigheder.</p>
+            <a href="tilmeld.html" class="btn">Tilmeld Dig Her</a>
+
+            <h2>Kontakt Os</h2>
+            <p>Du kan altid nå os gennem vores hjemmeside eller møde op til en af vores ugentlige møder. Vi ser frem til at møde dig og dele vores passion for cykling!</p>
+        </main>
+
+        <footer>
+            <small>&copy; <span id="year"></span> TheRandomChap</small>
+        </footer>
+    </div>
+
+    <script>
+        // set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
