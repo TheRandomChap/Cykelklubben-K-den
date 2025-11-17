@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #A8BBA3;
+        color: #333;
+      margin: 0;
+      padding: 50px;
+        }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #B87C4C;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px; 
+        height: auto;
+        max-width: 100%;
+        filter: brightness(0.2) contrast(1.2);
+    }
+    .back-button {
+        display: inline-block;
+        background-color: #C4A484;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        margin-bottom: 20px;
+        transition: background-color 0.3s;
+    }
+    .back-button:hover {
+        background-color: #F7F1DE;
+    }
+    .form-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    iframe {
+        max-width: 100%;
+    }
+</style>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tilmeld - Cykelklubben</title>
+    <meta name="description" content="Tilmeld dig Cykelklubben Kæden" />
+</head>
+<body>
+    <img src="./logo.png" alt="Cykelklubben Logo" class="logo" />
+    <div class="container">
+        <a href="Index.html" class="back-button">← Tilbage</a>
+        
+        <header>
+            <h1>Tilmeld Dig Cykelklubben Kæden</h1>
+            <p>Udfyld formularen nedenfor for at tilmelde dig vores cykelklub. Vi glæder os til at møde dig!</p>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdu5mWLGSVjl0WbM_lti_R4Me2Eq0WRp1i8aplKd4z22bPDxw/viewform?embedded=true" width="640" height="1506" frameborder="0" marginheight="0" marginwidth="0">Indlæser…</iframe>
+            </div>
+        </main>
+
+        <footer>
+            <small>&copy; <span id="year"></span> TheRandomChap</small>
+        </footer>
+    </div>
+
+    <script>
+        // set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
