@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="da">
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #A8BBA3;
+        color: #333;
+      margin: 0;
+      padding: 50px;
+        }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #B87C4C;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+        .logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px; 
+            height: auto;
+            max-width: 100%;
+            filter: brightness(0.2) contrast(1.2);
+        }
+        .btn {
+            display: inline-block;
+            background-color: #C4A484;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #F7F1DE;
+        }
+        .back-button {
+        display: inline-block;
+        background-color: #C4A484;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        margin-bottom: 20px;
+        transition: background-color 0.3s;
+        }
+        .back-button:hover {
+        background-color: #F7F1DE;
+        }
+        .form-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        }
+        iframe {
+        max-width: 100%;
+ }
+</style>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact — Cykelklubben Kæden</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <img src="./Items/logo.png" alt="Cykelklubben Logo" class="logo" />
+    </header>
+
+    <main class="container">
+        <a href="Index.html" class="back-button">← Tilbage</a> 
+        <h1>Kontakt</h1>
+        <p>Send en besked med formuleren nede under</p>
+
+        <form id="contactForm" class="contact-form">
+            <label>
+                Navn
+                <input name="name" type="text" required />
+            </label>
+
+            <label>
+                Email
+                <input name="email" type="email" required />
+            </label>
+
+            <label>
+                Emne
+                <input name="subject" type="text" />
+            </label>
+
+            <label>
+                Besked
+                <textarea name="message" rows="6" required></textarea>
+            </label>
+
+            <button type="submit">Send</button>
+
+            <div id="formStatus" role="status" aria-live="polite" class="form-status"></div>
+        </form> 
+    <footer>
+         <small>&copy; <span id="year"></span> TheRandomChap</small>
+    </footer>
+    <script>
+        // set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    </main>
+
+    <script>
+        const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyzozkyz';
+
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            status.textContent = 'Sending…';
+            const data = new FormData(form);
+
+            if (!FORMSPREE_ENDPOINT) {
+                // Fallback to mailto
+                const mailto = `mailto:mathiasca0209@gmail.com?subject=${encodeURIComponent(data.get('subject') || 'Contact from site')}&body=${encodeURIComponent(
+                    `Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\n${data.get('message')}`
+                )}`;
+                window.location.href = mailto;
+                status.textContent = '';
+                return;
+            }
+
+            try {
+                const res = await fetch(FORMSPREE_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: data
+                });
+                if (res.ok) {
+                    status.textContent = 'Message sent. Thank you.';
+                    form.reset();
+                } else {
+                    const result = await res.json();
+                    status.textContent = result.error || 'Sending failed.';
+                }
+            } catch (err) {
+                status.textContent = 'Network error.';
+            }
+        });
+    </script>
+</body>
+</html>
